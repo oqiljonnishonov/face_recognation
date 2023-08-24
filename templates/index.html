@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Recognition Web App</title>
+</head>
+<body>
+    <h1>Live Face Recognition with Name</h1>
+
+    <script>
+        // Get the video element
+        const videoElement = document.getElementById('videoElement');
+        
+        // Access the user's camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                // Assign the camera stream to the video element
+                videoElement.srcObject = stream;
+            })
+            .catch(error => {
+                console.error('Error accessing camera:', error);
+            });
+    </script>
+    
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+</body>
+</html>
